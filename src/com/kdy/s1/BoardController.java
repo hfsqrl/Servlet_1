@@ -26,8 +26,23 @@ public class BoardController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("Board Controller");
+		
+		// Encoding
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		String path = request.getRequestURL().toString();
+		path = path.substring(path.lastIndexOf("/"));
+		
+		String info = "";
+		
+		if(path.equals("/boardList.board")) {
+			System.out.println("Board List");
+			info = "./boardList.jsp";
+			
+		}
+		
 	}
 
 	/**
@@ -37,5 +52,5 @@ public class BoardController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
 }
